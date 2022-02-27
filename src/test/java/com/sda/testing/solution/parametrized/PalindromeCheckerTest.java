@@ -26,4 +26,14 @@ class PalindromeCheckerTest {
         assertEquals(expected,actual);
     }
 
+	@ParameterizedTest
+	@CsvFileSource(resources = "/testdata/palindroms.csv")
+	void shouldCheckWhetherStringIsAPalindromeFile(String text, boolean expected) {
+		//when
+		boolean actual = PalindromeChecker.isPalindrome(text);
+
+		//then
+		assertEquals(expected, actual);
+	}
+
 }
